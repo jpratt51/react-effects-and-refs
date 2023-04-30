@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import "./CardDeck.css";
 
 // PART 1 //
 
@@ -35,7 +36,7 @@ import axios from "axios";
 //                         src={card.cards[0].image}
 //                         alt={`${card.cards[0].value} of ${card.cards[0].suit}`}
 //                         width="200px"
-//                         style={{ margin: "20px" }}
+//                         style={{ transform: `rotate(${Math.random()}turn)` }}
 //                     />
 //                 ) : null}
 //             </div>
@@ -95,19 +96,18 @@ function CardDeck() {
 
     return (
         <div>
+            <button onClick={toggleDraw}>
+                {!startDraw ? "Start Draw" : "Stop Draw"}
+            </button>
             <div>
                 {card ? (
                     <img
                         src={card.cards[0].image}
                         alt={`${card.cards[0].value} of ${card.cards[0].suit}`}
-                        width="200px"
-                        style={{ margin: "20px" }}
+                        style={{ transform: `rotate(${Math.random()}turn)` }}
                     />
                 ) : null}
             </div>
-            <button onClick={toggleDraw}>
-                {!startDraw ? "Start Draw" : "Stop Draw"}
-            </button>
         </div>
     );
 }
